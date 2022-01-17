@@ -1,4 +1,4 @@
-export function search() {
-  return fetch(`/api/employees`, {mode: "cors"})
+export function index() {
+  return fetch(`/api/employees`)
   .then(res => res.json())
 }
