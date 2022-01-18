@@ -4,44 +4,39 @@ import * as apiService from "../../services/apiService"
 
 
  
-const Employee = () => {
-const [employees, setEmployees] = useState()
+const Employee = ({
+  employee,
+}) => {
+
 const [isActive, setIsActive] = useState(false)
 
-useEffect(() => {
-  const getEmp = async ()=> {
-
-   await apiService.index()
-    .then(employees =>{
-      
-      console.log("EMP", employees)
-      setEmployees(employees.employees)
-    } )
-  }
-  getEmp()
-},[])
-  
-
-  return <div>
+  return (
    
-      {employees && employees.map((employee) => (
-        <div key={employee.id} className='accordian'>
+   
+  <div>
+
+   
+     
+        <div key={employee?.id} className='accordian'>
           <div className='accordian-item'>
-            <img width="200px" src={employee.avatar} alt={employee.firstName}/>
             <div className='accordian-title'
             onClick={()=> setIsActive(!isActive)}
             >
-              {employee.firstName} {employee.lastName}</div>
+            <img width="200px" src={employee?.avatar} alt={employee?.firstName}/>
+              {employee?.firstName} {employee?.lastName}</div>
               <div>{isActive ? '-' : '+'}</div>
           </div>
           {isActive && <div className="accordion-content">
-            <h1>AFTIN!!!!!</h1>
+            <div>Bio: {employee?.bio}</div>
+            <div>{employee?.address.city}</div>
+            <div>{employee?.address.streetAddress}  {employee?.address.zipCode} {employee?.address.state}</div>
             </div>}
-        </div>
-      )
-      
-      )}
+       
     </div>;
+    </div>
+    
+    
+      )
   }
 
 export default Employee;
