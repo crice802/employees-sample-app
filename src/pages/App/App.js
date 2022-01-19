@@ -1,11 +1,8 @@
 import { makeServer } from "../../server";
 import React, { Component } from 'react';
-
-
 import EmployeeIndex from '../../pages/EmployeeIndex/EmployeeIndex.jsx'
-import Employee from "../../components/Employee/Employee.jsx"
 import * as apiService from  "../../services/apiService.js"
-import { datatype } from "faker";
+
 
 if (process.env.NODE_ENV === "development") {
   makeServer({ environment: "development" });
@@ -21,21 +18,32 @@ class App extends Component {
     this.setState({ employees: data.employees })
   }
 
+  handleDeleteEmployee = async (id) => {
+    await apiService.deleteEmp(id)
+    this.setState((state) => ({
+      employees: state.employees.filter((emp) => emp.id !== id)
+    }))
+  }
+
+  // handleUpdateEmployee = async updatedEmpData => {
+  //   const updatedEmployee = await apiService.update(updatedEmpData)
+  //   const newEmployeesArray = this.state.employees.map(emp =>
+  //     emp.id === updatedEmployee.id ? updatedEmployee :  emp
+  //     )
+  //     this.setState(
+  //       {employees: newEmployeesArray},
+  //       () => this.props.history.push('/')
+  //     )
+  // }
+
   render() { 
     return (
-      // <>
-      // <h1>Employees</h1>
-      // <nav>
-      //   <Link to="/employees">Employee Index</Link>
-      // </nav>
-      // <Outlet />
-      // </>
-     
       <div>
       <header>
         <h1>Employees</h1>
-        <Employee
-        employee={this.state.employees}
+        <EmployeeIndex
+        handleDeleteEmployee={this.handleDeleteEmployee}
+        employees={this.state.employees}
         />
       </header>
     </div>
