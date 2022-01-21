@@ -4,13 +4,13 @@ export {
   update,
 }
 
-function update(employee) {
-  return fetch(`api/employees/${employee.id}`, {
-    method: "PATCH", 
-    headers: {'content-type': 'application/json'},
-    body: JSON.stringify(employee)
-  }).then(res => res.json())
-}
+// function update(employee) {
+//   return fetch(`api/employees/${employee.id}`, {
+//     method: "PATCH", 
+//     headers: {'content-type': 'application/json'},
+//     body: JSON.stringify(employee)
+//   }).then(res => res.json())
+// }
 
 function deleteEmp(id) {
   return fetch(`api/employees/${id}`, {

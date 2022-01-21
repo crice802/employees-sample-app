@@ -1,21 +1,21 @@
 import React, { useState } from 'react'
 
 
-function EmployeeCard({employee, handleDeleteEmployee, }) {
-  const [isActive, setIsActive] = useState(false)
+function EmployeeCard({employee, handleDeleteEmployee, isActive1, setIsActive1 }) {
+  const [isActive2, setIsActive2] = useState(false)
 
   return (
   <div>
         <div key={employee?.id} className='accordian'>
           <div className='accordian-item'>
             <div className='accordian-title'
-            onClick={()=> setIsActive(!isActive)}
+            onClick={()=> setIsActive2(!isActive2)}
             >
             <img width="200px" src={employee?.avatar} alt={employee?.firstName}/>
               {employee?.firstName} {employee?.lastName}</div>
-              <div>{isActive ? '-' : '+'}</div>
+              <div>{(isActive1 ||isActive2 ) ? '-' : '+'}</div>
           </div>
-          {isActive  && <div className="accordion-content">
+          {(isActive2 ||isActive1)  && <div className="accordion-content">
             <div> <strong>Bio:</strong> <em>{employee.bio}</em></div>
             <div> <strong>Email:</strong> {employee.email}</div>
             <div> <strong>Cell:</strong> {employee.phone}</div>
