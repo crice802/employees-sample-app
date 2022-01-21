@@ -25,6 +25,7 @@ class App extends Component {
     }))
   }
 
+  //function to update for bonus (running short on time for this but wanted to add what i could)
   // handleUpdateEmployee = async updatedEmpData => {
   //   const updatedEmployee = await apiService.update(updatedEmpData)
   //   const newEmployeesArray = this.state.employees.map(emp =>

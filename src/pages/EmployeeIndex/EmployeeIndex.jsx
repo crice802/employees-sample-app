@@ -20,6 +20,7 @@ function EmployeeIndex({employees, handleDeleteEmployee, handleUpdateEmployee}) 
       employee={employee}
       handleDeleteEmployee={handleDeleteEmployee}
       />,
+        //Component to update for bonus (running short on time for this but wanted to add what i could)
       // <EditEmployee 
       // handleUpdateEmployee={handleUpdateEmployee}
       // employee={employee}
