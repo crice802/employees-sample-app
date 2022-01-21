@@ -42,6 +42,7 @@ class App extends Component {
       <header>
         <h1>Employees</h1>
         <EmployeeIndex
+        handleUpdateEmployee={this.handleUpdateEmployee}
         handleDeleteEmployee={this.handleDeleteEmployee}
         employees={this.state.employees}
         />

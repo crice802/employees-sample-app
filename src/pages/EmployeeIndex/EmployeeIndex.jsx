@@ -1,8 +1,9 @@
 
 import React, { useState } from 'react'
+import EditEmployee from '../../components/EditEmployee/EditEmployee'
 import EmployeeCard from '../../components/Employee/EmployeeCard'
 
-function EmployeeIndex({employees, handleDeleteEmployee}) {
+function EmployeeIndex({employees, handleDeleteEmployee, handleUpdateEmployee}) {
   const [isActive1, setIsActive1] = useState(false)
   
   return (
@@ -18,7 +19,11 @@ function EmployeeIndex({employees, handleDeleteEmployee}) {
       key={employee.id}
       employee={employee}
       handleDeleteEmployee={handleDeleteEmployee}
-      />
+      />,
+      // <EditEmployee 
+      // handleUpdateEmployee={handleUpdateEmployee}
+      // employee={employee}
+      // />
       )}
     </>
   )
